@@ -68,7 +68,9 @@ The scope's display, captured over USB with `hantek-dso screenshot`:
 - Linux with libusb 1.0 (installed on most desktops)
 - Python ≥ 3.10
 - A Hantek DSO5000P-series scope connected via its rear **USB device** port
-  (the scope enumerates as `049f:505a`)
+  (the scope enumerates as `049f:505a`). That USB cable is all
+  that's needed: no serial/console access, firmware changes or other
+  modifications to the scope
 
 Tested with a DSO5102P (modified to 200 MHz) running firmware 3.40.0 (210225).
 
