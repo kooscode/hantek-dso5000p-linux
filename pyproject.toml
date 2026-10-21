@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hantek-dso"
+version = "0.1.0"
+description = "Linux client for Hantek DSO5000P oscilloscopes (DSO5102P/DSO5202P) over USB"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["pyusb>=1.2", "numpy"]
+
+[project.optional-dependencies]
+gui = ["PySide6>=6.5", "pyqtgraph>=0.13"]
+
+[project.scripts]
+hantek-dso = "hantek_dso.cli:main"
+
+[project.gui-scripts]
+hantek-dso-gui = "hantek_dso.gui:main"
+
+[tool.setuptools]
+packages = ["hantek_dso"]
+
+[tool.setuptools.package-data]
+hantek_dso = ["*.inf"]

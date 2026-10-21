@@ -1,0 +1,8 @@
+# Hantek DSO5000P series (DSO5102P / DSO5202P) - USB "device" port.
+# The scope enumerates as a Linux gadget-serial device with VID:PID 049f:505a,
+# which the host kernel otherwise binds to the cdc_subset USB-network driver.
+#
+# 1) give logged-in users access to the raw USB device (for libusb/pyusb)
+SUBSYSTEM=="usb", ATTR{idVendor}=="049f", ATTR{idProduct}=="505a", MODE="0666", TAG+="uaccess"
+# 2) stop NetworkManager from treating it as a network card
+SUBSYSTEM=="net", ATTRS{idVendor}=="049f", ATTRS{idProduct}=="505a", ENV{NM_UNMANAGED}="1"
